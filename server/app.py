@@ -30,7 +30,7 @@ class Signup(Resource):
             session['user_id'] = new_user.id
             
             return new_user.to_dict(), 201
-        return {'error': '422 Unprocessable Entity'}, 422
+        return {"error":"Try signing in again"}, 401
        
 
 class CheckSession(Resource):
@@ -50,7 +50,7 @@ class Login(Resource):
         if user.authenticate(password):
             session['user_id'] = user.id
             return user.to_dict(), 200
-        return {'error': '401 Unauthorized'}, 401
+        return {'error': 'Unauthorized'}, 401
 
 class Logout(Resource):
 
