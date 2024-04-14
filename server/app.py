@@ -56,7 +56,7 @@ class Logout(Resource):
 
     def delete(self):
         session['user_id'] = None
-        return {}, 204
+        return {}, 200
 
 api.add_resource(ClearSession, '/clear', endpoint='clear')
 api.add_resource(Signup, '/signup', endpoint='signup')
